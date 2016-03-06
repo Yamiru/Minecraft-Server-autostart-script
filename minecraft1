@@ -8,7 +8,7 @@
 # Default-Start:  2 3 4 5
 # Default-Stop:   0 1 6
 # Short-Description: minecraft server no.1
-# Description:       Minecraft init.d script to automatic start Minecraft server on boot
+# Description:       Minecraft init.d shell script to automatic start Minecraft server on boot
 #                    as diferent user.
 ### END INIT INFO
 DIR=/opt/minecraft1
