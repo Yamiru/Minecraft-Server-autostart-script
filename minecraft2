@@ -1,0 +1,39 @@
+#! /bin/sh
+ ### BEGIN INIT INFO
+# Provides:       minecraft2
+# Required-Start: $local_fs $remote_fs screen-cleanup
+# Required-Stop:  $local_fs $remote_fs
+# Should-Start:   $network
+# Should-Stop:    $network
+# Default-Start:  2 3 4 5
+# Default-Stop:   0 1 6
+# Short-Description: minecraft server no.2
+# Description:       Minecraft init.d script to automatic start Minecraft server on boot
+#                    as diferent user.
+### END INIT INFO
+DIR=/opt/minecraft2
+JARFILE=minecraft2.jar
+XMS=1024M
+XMX=1024M
+NAME=minecraft2
+SCREENNAME=minecraft2
+USER=minecraft
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+case "$1" in
+  start)
+    su - $USER && cd $DIR && screen -dmS $SCREENNAME  /usr/bin/java -Xms$XMS -Xmx$XMX -jar $JARFILE nogui
+    echo "Starting $NAME Server"
+    ;;
+  stop)
+    screen -X -S $SCREENNAME kill
+    echo "Shuting down $NAME server"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/$NAME {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
