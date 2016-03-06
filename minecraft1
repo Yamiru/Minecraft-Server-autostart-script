@@ -16,8 +16,8 @@ JARFILE=minecraft1.jar
 XMS=1024M
 XMX=1024M
 NAME=minecraft1
-USER=lenovo
-SCREENNAME=mcbc
+SCREENNAME=minecraft1
+USER=minecraft
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
